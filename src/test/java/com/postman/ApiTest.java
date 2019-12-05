@@ -1,30 +1,32 @@
 package com.postman;
 
 import com.postman.echo.ApiClient;
-import com.postman.echo.DogResponce;
-import com.postman.echo.DogResponceAssert;
-import feign.Feign;
 import feign.gson.GsonDecoder;
 import feign.gson.GsonEncoder;
 import feign.okhttp.OkHttpClient;
 import feign.slf4j.Slf4jLogger;
+import org.junit.Before;
 import org.junit.Test;
+
+import static com.postman.echo.DogResponceAssert.assertThat;
+import static feign.Feign.builder;
 
 
 public class ApiTest {
+    private ApiClient apiClient;
 
-    @Test
-    public void test() {
-        ApiClient apiClient = Feign.builder()
+    @Before
+    public void setUp() {
+        apiClient = builder()
                 .client(new OkHttpClient())
                 .decoder(new GsonDecoder())
                 .encoder(new GsonEncoder())
-                .logger(new Slf4jLogger(ApiClient.class))
                 .target(ApiClient.class, "https://dog.ceo");
-        DogResponce test = apiClient.getBars();
+    }
 
-
-        DogResponceAssert.assertThat(test).hasNoNullFieldsOrPropertiesExcept();
+    @Test
+    public void test() {
+        assertThat(apiClient.getRandomImage()).hasNoNullFieldsOrPropertiesExcept();
     }
 
 }
