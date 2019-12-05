@@ -27,7 +27,7 @@
                     <outputDirectory>src/main/java</outputDirectory>
                     <targetPackage>com.postman.echo</targetPackage>
                     <annotationStyle>gson</annotationStyle>
-                    <sourceType>json</sourceType>
+                    <sourceType>jsonschema</sourceType>
                     <generateBuilders>true</generateBuilders>
                 </configuration>
                 <executions>

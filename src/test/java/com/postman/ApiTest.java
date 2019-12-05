@@ -4,7 +4,7 @@ import com.postman.echo.ApiClient;
 import feign.gson.GsonDecoder;
 import feign.gson.GsonEncoder;
 import feign.okhttp.OkHttpClient;
-import feign.slf4j.Slf4jLogger;
+
 import org.junit.Before;
 import org.junit.Test;
 

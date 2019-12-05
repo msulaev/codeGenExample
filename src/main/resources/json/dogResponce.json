@@ -1,4 +1,16 @@
-{
-  "message": "https://images.dog.ceo/breeds/mastiff-english/2.jpg",
-  "status": "success"
+{"type": "object",
+  "properties": {
+    "message": {
+      "type": "string",
+      "examples": [
+        "https://images.dog.ceo/breeds/mastiff-english/2.jpg"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "examples": [
+        "success"
+      ]
+    }
+  }
 }
